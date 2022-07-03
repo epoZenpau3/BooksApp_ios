@@ -6,23 +6,26 @@
 //
 
 import UIKit
-import Alamofire
 
 class ShowBooksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ApiService.fetchBooks()
+        ApiService.getBooks { booksFrom in
+            guard let books = booksFrom else  { return }
+            for book in books {
+                book.printBook()
+            }
+        } failure: { error in
+            print(error ?? "failure")
+        }
+
+        ApiService.postBook(title: "Black Tea", author: 2, color: "Yellow") { book in
+            print(book ?? "success")
+        } failure: { error in
+            print(error ?? "failure")
+        }
     }
 }
 
-class ApiService {
-  static func fetchBooks() {
-      AF.request("http://95.79.101.224:8000/firstapp/books/").validate().responseDecodable(of: BooksModel.self) { response in
-          switch response.result {
-          case .success(let value): print(value)
-          case .failure(let error): print(error)
-          }
-      }
-  }
-  }
+
