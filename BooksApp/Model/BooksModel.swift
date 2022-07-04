@@ -7,29 +7,23 @@
 
 import Foundation
 
-typealias BooksModel = [BookModel]
-
-struct BookModel: Decodable,Encodable {
-    let id: Int
-    let author: Int
+struct BookModel: Codable {
     let title: String
     let color: String
-    let authorFirstName: String?
-    let authorSecondName: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, author, title, color
-        case authorFirstName = "author_first_name"
-        case authorSecondName = "author_second_name"
+        case title, color
+    }
+    
+    init(title: String, color: String) {
+        self.title = title
+        self.color = color
     }
     
     public func printBook() {
-        print("title: " + title + ", author: " + String(author) + ", color: " + color)
+        print("title: " + title + ", color: " + color)
     }
 }
 
-struct BookForPost: Encodable {
-    let author: Int
-    let title: String
-    let color: String
-}
+typealias BooksModel = [BookModel]
+

@@ -8,21 +8,22 @@
 import Alamofire
 
 class ApiService {
+    static var authorsDictionary: [Int: String] = [:]
     
     static let baseURL = "http://95.79.101.224:8000/firstapp/"
     
-    static func getBooks(completion: @escaping (([BookModel]?) -> Void), failure: @escaping ((Error?) -> Void)) {
-        AF.request(baseURL + "books/").validate().responseDecodable(of: [BookModel].self) { response in
+    static func getAuthors(completion: @escaping ((Authors?) -> Void), failure: @escaping ((Error?) -> Void)) {
+        AF.request(baseURL + "author/").validate().responseDecodable(of: Authors.self) { response in
             switch response.result {
-            case .success(let value): completion(value)
+            case .success(let books): completion(books)
             case .failure(let error): print(error)
             }
         }
     }
     
-    static func getAuthors(completion: @escaping (([AuthorModel]?) -> Void),
+    static func getBooks(completion: @escaping ((BooksModel?) -> Void),
                            failure: @escaping ((Error?) -> Void)) {
-        AF.request(baseURL + "authors/").validate().responseDecodable(of: [AuthorModel].self) { response in
+        AF.request(baseURL + "book/").validate().responseDecodable(of: BooksModel.self) { response in
             switch response.result {
             case .success(let value): completion(value)
             case .failure(let error): print(error)
@@ -30,20 +31,10 @@ class ApiService {
         }
     }
     
-    static func postBook(title: String,
-                         author: Int,
-                         color: String,
-                         completion: @escaping((BookModel?) -> Void),
-                         failure: @escaping((Error?) -> Void)) {
-        
-        let book = BookForPost(author: author, title: title, color: color)
-        
-        AF.request(baseURL + "books/create/", method: .post, parameters: book, encoder: JSONParameterEncoder.default).response { response in
+    static func postAuthor(name: String, secondName: String, books: BooksModel) {
+        let author = Author(name: name, secondName: secondName, books: books)
+        AF.request(baseURL + "book/create/", method: .post, parameters: author, encoder: JSONParameterEncoder.default).response { response in
             print(response)
         }
-    }
-    
-    static func postAuthor() {
-        
     }
 }

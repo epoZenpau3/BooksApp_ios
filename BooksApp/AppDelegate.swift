@@ -16,9 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = ShowBooksViewController()
+        let initialViewController = LoginViewController()
+        let attributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.systemPink
+        ]
+        //2
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        initialViewController.title = "Log in"
+        let navigationController = UINavigationController(rootViewController: initialViewController)
+        window?.rootViewController = navigationController
         return true
     }
-    
 }
 

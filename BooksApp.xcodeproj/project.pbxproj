@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		119A6E3D2871DA1D005969E7 /* AuthorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119A6E3C2871DA1D005969E7 /* AuthorModel.swift */; };
 		119A6E3F2871DD56005969E7 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119A6E3E2871DD56005969E7 /* ErrorModel.swift */; };
+		119E7BEA287338730063D5BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119E7BE9287338730063D5BF /* LoginViewController.swift */; };
 		11DF138B2870B0A500152B76 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF138A2870B0A500152B76 /* API.swift */; };
 		11DF138D2870B79F00152B76 /* BooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DF138C2870B79F00152B76 /* BooksModel.swift */; };
 		11F464172870974400BDE4FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F464162870974400BDE4FA /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		119A6E3C2871DA1D005969E7 /* AuthorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorModel.swift; sourceTree = "<group>"; };
 		119A6E3E2871DD56005969E7 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		119E7BE9287338730063D5BF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		11DF138A2870B0A500152B76 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		11DF138C2870B79F00152B76 /* BooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksModel.swift; sourceTree = "<group>"; };
 		11F464132870974400BDE4FA /* BooksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BooksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				11F4642D2870AE0C00BDE4FA /* ShowBooksViewController.swift */,
+				119E7BE9287338730063D5BF /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				119E7BEA287338730063D5BF /* LoginViewController.swift in Sources */,
 				119A6E3F2871DD56005969E7 /* ErrorModel.swift in Sources */,
 				11DF138D2870B79F00152B76 /* BooksModel.swift in Sources */,
 				119A6E3D2871DA1D005969E7 /* AuthorModel.swift in Sources */,

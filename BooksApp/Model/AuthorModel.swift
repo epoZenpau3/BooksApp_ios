@@ -8,17 +8,18 @@
 
 import Foundation
 
-typealias AuthorsModel = [AuthorModel]
-
-struct AuthorModel: Codable {
-    let id: Int
+struct Author: Codable {
     let name, secondName: String
+    let books: BooksModel
 
     enum CodingKeys: String, CodingKey {
-        case id, name
+        case name
         case secondName = "second_name"
+        case books
     }
 }
+
+typealias Authors = [Author]
 
 
 
