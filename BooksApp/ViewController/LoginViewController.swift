@@ -46,10 +46,20 @@ class LoginViewController: UIViewController {
         configuration.buttonSize = .large
         configuration.title = "Gray Capsule"
         let button = UIButton(configuration: configuration, primaryAction: UIAction { _ in
-            print("Successfuly login")
-            let showBooksVC = ShowBooksViewController()
-            showBooksVC.view.backgroundColor = .white
-            self.navigationController?.pushViewController(showBooksVC, animated: true)
+            
+            
+            ApiService.loginPost(userName: "epoche", passWord: "epoche270296")
+            
+            print(ApiService.httpHeaders)
+            ApiService.getAuthors { response in
+                print(response)
+            } failure: { error in
+                print(error)
+            }
+            
+            //let showBooksVC = ShowBooksViewController()
+            //showBooksVC.view.backgroundColor = .white
+            //self.navigationController?.pushViewController(showBooksVC, animated: true)
         })
         button.setTitle("Log in", for: .normal)
         button.layer.borderWidth = 1
